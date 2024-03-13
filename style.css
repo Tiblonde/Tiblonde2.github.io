@@ -1,0 +1,227 @@
+
+html{
+	font-family: "Patua One", serif;
+	font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+/*主题色 hsla(208, 100%, 50%, 1)*/
+
+body {
+	width: 600px;
+	height: 200vh;
+	margin: 0 auto;
+	padding: 0;
+
+	background-image: linear-gradient(180deg, 
+			hsla(208, 100%, 50%, 1) , white );
+}
+
+ul {
+	list-style-type: none;
+
+	margin: 0;
+	padding: 0;
+}
+
+/*链接的默认样式*/
+a {
+	display: block;
+ 	color: white;
+ 	text-decoration: none;
+}
+a:link {	
+
+}
+a:visited {
+
+}
+a:focus {
+	
+}
+a:hover {	
+	text-decoration: underline;
+}
+a:active {
+
+}
+
+/*-------------------------------------------------------------------------------*/
+/*侧边伸缩悬浮栏*/
+label[for="toggle"] {
+	font-size: 2.5rem; /*2.5rem * 16px = 40px*/
+	position: absolute;
+	top: 0px;
+	left: 10px;
+	z-index: 1;
+	cursor: pointer;
+}
+input[type="checkbox"] {
+	position: absolute;
+	top: -100px;
+}
+
+.sidebar {
+	color: white;
+	background-color: hsla(208, 100%, 50%, 1); 
+
+	width: 300px;
+	height: 100%;
+
+	position: fixed;
+	top: 0px;
+	left: -290px;
+
+	transition: 0.6s all;
+}
+
+input[type="checkbox"]:checked + aside {
+	left: 0px;
+}
+
+
+/*侧边的列表样式*/
+.sidebar ul {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	
+	justify-content: space-between;
+}
+.sidebar ul li {
+	text-align: center;
+
+	line-height: 3rem;
+	
+	flex: 1;
+}
+.sidebar ul li:nth-child(1){
+	font-size: 2.5rem;
+	margin: 4px;
+	padding: 0 0 0 50px;
+}
+.sidebar a:hover {	
+	background-color: hsla(208, 100%, 30%, 1);
+}
+/*-------------------------------------------------------------------------------*/
+/*尾部样式*/
+.footer {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+/*头部样式*/
+.header {
+	padding: 5px 0;
+
+	color: white;
+	font-family: "Patua One", serif;
+	font-size: 2.5rem;
+	font-weight: bold;
+	text-align: center;
+
+	
+}
+
+/*-------------------------------------------------------------------------------*/
+/*导航栏样式*/
+.nav {
+	position: relative;
+	font-size: 1.2rem; /**/
+}
+.nav ul {
+
+}
+.nav ul::after {
+	clear: both;
+	display: block;
+	content: "";
+}
+.nav li {
+	float: left;
+	width: 150px;
+
+	background-color: hsla(208, 100%, 50%, 1);
+}
+.nav a {
+	text-align: center;
+	padding: 0.5em 1em;
+}
+.nav a:hover {
+	background-color: hsla(208, 100%, 30%, 1);
+}
+
+.nav a[class="active--panel"]{
+	background-color: hsla(208, 100%, 30%, 1);
+}
+.active--page{
+	opacity: 1;
+}
+/*-------------------------------------------------------------------------------*/
+/*内容栏 网格容器*/
+main {
+	display: grid;
+
+	width: 600px;
+	grid-template-columns: 30% 70%;
+	grid-template-rows: repeat(auto-fill, minmax(120px, auto));
+	grid-row-gap: 10px;
+
+	
+
+	background-color: transparent;
+
+	position: absolute;/*实现多个<main>页面叠放*/
+	opacity: 0;
+	
+}
+/*
+grid-template-columns会根据容器宽度立即计算
+之后添加的grid-column-gap会将网格子元素“挤出去”
+*/
+.timestamp {
+	display: block;
+	line-height: 1.5rem;
+	margin: 10px auto;
+	text-align: center;
+
+	background-color: white;
+	margin: 0;
+	padding: 10px;
+	border-bottom: 2px solid hsla(208, 100%, 50%, 1);
+	
+}
+.content {
+	overflow: auto;
+
+	background-color: white;
+	margin: 0;
+	padding: 10px;
+	border-bottom: 2px solid hsla(208, 100%, 50%, 1);
+	
+}
+.content h4 {
+	
+}
+.content p {
+
+}
+
+.content img {
+	float: left;
+	height: 100px;
+	width: 100px;
+	margin: 10px 10px;
+}
